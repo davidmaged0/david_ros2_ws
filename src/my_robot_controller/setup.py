@@ -23,6 +23,7 @@ setup(
             "test_node = my_robot_controller.first_node:main",
             "draw_circle = my_robot_controller.draw_circle:main",
             "game_node = my_robot_controller.gameNode:main",
+            "postion_subscriber = my_robot_controller.postion_subscriber:main",
         ],
     },
 )

@@ -8,7 +8,7 @@ import sys
 
 class GameNode(Node):
     def __init__(self):
-        super().__init__("draw_cycle")
+        super().__init__("parametric_motion_node")
         self.command_vel_pub = self.create_publisher(Twist, "turtle1/cmd_vel", 10)         
         self.timer = self.create_timer(0.5, self.send_velocity_command) 
         self.get_logger().info("Draw cycle node has been started.") 
