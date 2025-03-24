@@ -3,8 +3,10 @@
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist
+import math
+import sys
 
-class DrawCycleNode(Node):
+class GameNode(Node):
     def __init__(self):
         super().__init__("draw_cycle")
         self.command_vel_pub = self.create_publisher(Twist, "turtle1/cmd_vel", 10)         
@@ -13,17 +15,20 @@ class DrawCycleNode(Node):
 
     def send_velocity_command(self):
         msg = Twist() 
-        msg.linear.x = 2.0 
-        #msg.linear.y = 0.0
+        # w (angular Vel) = Vel. / r 
+        linear_velocity = float(sys.argv[1])
+        radius =float(sys.argv[2])
+        msg.linear.x = linear_velocity 
+        msg.linear.y = 0.0
         #msg.linear.z = 0.0
         #msg.angular.x = 0.0
        # msg.angular.y = 0.0
-        msg.angular.z = 1.0 
+        msg.angular.z = linear_velocity / radius 
         self.command_vel_pub.publish(msg) 
 
 def main(args=None):
     rclpy.init(args=args) 
-    node = DrawCycleNode() 
+    node = GameNode() 
     rclpy.spin(node)
     rclpy.shutdown() 
 
