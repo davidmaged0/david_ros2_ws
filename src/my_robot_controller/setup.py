@@ -24,6 +24,7 @@ setup(
             "draw_circle = my_robot_controller.draw_circle:main",
             "game_node = my_robot_controller.gameNode:main",
             "postion_subscriber = my_robot_controller.postion_subscriber:main",
+            "turtle_sim_controller = my_robot_controller.turtle_sim_controller:main",
         ],
     },
 )
