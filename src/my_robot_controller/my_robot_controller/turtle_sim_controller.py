@@ -14,8 +14,13 @@ class TurtleSimControl(Node):
 
     def pose_callback(self, pose: Pose):
         cmd = Twist()
-        cmd.linear.x = -1.0
-        cmd.angular.z = 0.0
+
+        if pose.x > 9.5 or pose.x < 2.0 or pose.y > 9.5 or pose.y < 2.0:
+            cmd.linear.x = 1.0 
+            cmd.angular.z = 9.10
+        else:
+            cmd.linear.x = 6.0
+            cmd.angular.z = 0.0
         self.cmd_velocity_publisher.publish(cmd)
 
 def main(args=None):
