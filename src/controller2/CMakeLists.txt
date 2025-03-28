@@ -25,12 +25,14 @@ endif()
 
 
 add_executable(talker_node_cpp /home/david/david_ros2_ws/src/controller2/src/talker_node_cpp.cpp)
-
+add_executable(listener_node_cpp /home/david/david_ros2_ws/src/controller2/src/listener_node_cpp.cpp)
 
 ament_target_dependencies(talker_node_cpp rclcpp std_msgs)
+ament_target_dependencies(listener_node_cpp rclcpp std_msgs)
 
 install(TARGETS
   talker_node_cpp
+  listener_node_cpp
   DESTINATION lib/${PROJECT_NAME})
 
 
