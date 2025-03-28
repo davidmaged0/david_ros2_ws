@@ -22,4 +22,17 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+
+
+add_executable(talker_node_cpp /home/david/david_ros2_ws/src/controller2/src/talker_node_cpp.cpp)
+
+
+ament_target_dependencies(talker_node_cpp rclcpp std_msgs)
+
+install(TARGETS
+  talker_node_cpp
+  DESTINATION lib/${PROJECT_NAME})
+
+
+
 ament_package()

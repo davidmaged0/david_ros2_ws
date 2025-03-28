@@ -18,7 +18,7 @@ def generate_launch_description():
     )
 
 
-
+    # Add the actions to the launch description
     ld.add_action(talker_node)
     ld.add_action(listener_node)
 
